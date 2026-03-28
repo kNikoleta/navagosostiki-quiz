@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Τεστ Εξάσκησης</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div id="loading" class="loader">Φόρτωση ερωτήσεων...</div>
+
+      <div id="app" class="hidden">
+        <div class="header">
+          <div>
+            <h1 class="title">Τεστ Εξάσκησης</h1>
+            <p class="subtitle">Επίλεξε ενότητα ή γενικό τεστ</p>
+          </div>
+        </div>
+
+        <div id="startScreen">
+          <div class="start-box">
+            <h2 class="start-title">Επιλογή τεστ</h2>
+            <p class="start-text">
+              Μπορείς να διαλέξεις ένα από τα 10 τεστ των 100 ερωτήσεων
+              ή ένα γενικό τεστ από όλες τις ερωτήσεις.
+            </p>
+
+            <div class="mode-grid" id="modeGrid">
+              <button class="mode-btn mode-btn-general" data-mode="all">
+                Γενικό τεστ
+                <span>50 τυχαίες από όλες τις ερωτήσεις</span>
+              </button>
+
+              <button class="mode-btn" data-mode="1">Τεστ 1<span>Ερωτήσεις 1–100</span></button>
+              <button class="mode-btn" data-mode="2">Τεστ 2<span>Ερωτήσεις 101–200</span></button>
+              <button class="mode-btn" data-mode="3">Τεστ 3<span>Ερωτήσεις 201–300</span></button>
+              <button class="mode-btn" data-mode="4">Τεστ 4<span>Ερωτήσεις 301–400</span></button>
+              <button class="mode-btn" data-mode="5">Τεστ 5<span>Ερωτήσεις 401–500</span></button>
+              <button class="mode-btn" data-mode="6">Τεστ 6<span>Ερωτήσεις 501–600</span></button>
+              <button class="mode-btn" data-mode="7">Τεστ 7<span>Ερωτήσεις 601–700</span></button>
+              <button class="mode-btn" data-mode="8">Τεστ 8<span>Ερωτήσεις 701–800</span></button>
+              <button class="mode-btn" data-mode="9">Τεστ 9<span>Ερωτήσεις 801–900</span></button>
+              <button class="mode-btn" data-mode="10">Τεστ 10<span>Ερωτήσεις 901–1000</span></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats hidden" id="statsBar">
+          <div class="stat">
+            <span class="stat-label">Λειτουργία</span>
+            <span class="stat-value stat-value-small" id="modeLabel">Γενικό</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Ερώτηση</span>
+            <span class="stat-value" id="progress">1 / 50</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Απαντημένες</span>
+            <span class="stat-value" id="answeredCount">0</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Λάθη</span>
+            <span class="stat-value" id="errorCount">0</span>
+          </div>
+        </div>
+
+        <div id="quizScreen" class="hidden">
+          <div class="question-box">
+            <div class="question-number" id="questionNumber">Ερώτηση 1</div>
+            <h2 class="question-text" id="questionText"></h2>
+          </div>
+
+          <div class="options" id="optionsContainer"></div>
+          <div class="feedback" id="feedback"></div>
+
+          <div class="actions nav-actions">
+            <button class="btn btn-secondary" id="prevBtn">← Προηγούμενη</button>
+            <button class="btn btn-primary" id="nextBtn">Επόμενη →</button>
+          </div>
+
+          <div class="actions">
+            <button class="btn btn-secondary" id="finishBtn">Τέλος τεστ</button>
+            <button class="btn btn-secondary" id="backToStartBtn">Αλλαγή τεστ</button>
+            <button class="btn btn-secondary" id="restartBtn">Επανάληψη ίδιου mode</button>
+          </div>
+        </div>
+
+        <div id="resultScreen" class="hidden">
+          <div class="result-box">
+            <h2 class="result-title" id="resultTitle"></h2>
+            <p class="result-text" id="resultText"></p>
+
+            <div class="actions center-actions">
+              <button class="btn btn-secondary" id="resultBackBtn">Αλλαγή τεστ</button>
+              <button class="btn btn-primary" id="newTestBtn">Ξανά στο ίδιο mode</button>
+            </div>
+          </div>
+
+          <div class="review-list" id="reviewList"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
